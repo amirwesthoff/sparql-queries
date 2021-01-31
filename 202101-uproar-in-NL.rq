@@ -1,0 +1,15 @@
+# run on SPARQL endpoint <http://query.wikidata.org>
+# ===================================================
+#defaultView:Timeline
+SELECT ?s ?sLabel ?sDescription ?date ?image ?locationLabel ?motto
+WHERE 
+{
+  {?s wdt:P31 wd:Q124734} UNION {?s wdt:P31 wd:Q124757} .
+  ?s wdt:P17 wd:Q55 . 
+  {?s wdt:P585 ?date} UNION {?s wdt:P580 ?date} .
+  OPTIONAL {?s wdt:P276 ?location }
+  OPTIONAL {?s wdt:P18 ?image }
+  OPTIONAL {?s wdt:P1451 ?motto }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "nl". }
+}
+ORDER BY ASC (?date)
