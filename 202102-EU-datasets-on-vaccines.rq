@@ -1,0 +1,18 @@
+# run on SPARQL endpoint <https://data.europa.eu/euodp/en/linked-data> (html) OR 
+# ===================================================
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX odp:  <http://data.europa.eu/euodp/ontologies/ec-odp#>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+SELECT DISTINCT ?Graph ?DatasetTitle ?Publisher ?DatasetURI ?description
+WHERE { GRAPH ?Graph  {
+    ?DatasetURI a <http://www.w3.org/ns/dcat#Dataset> ; 
+                dc:publisher ?Publisher ; 
+                dc:title ?DatasetTitle ;
+                dc:description ?description .
+    FILTER(regex(?DatasetTitle, "vaccine" ,"i"))
+    FILTER(LANG(?description) = "en" )
+  }  
+} 
+LIMIT 10
