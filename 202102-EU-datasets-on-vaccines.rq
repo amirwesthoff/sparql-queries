@@ -1,4 +1,4 @@
-# run on SPARQL endpoint <https://data.europa.eu/euodp/en/linked-data> (html) OR 
+# run on SPARQL endpoint <https://data.europa.eu/euodp/en/linked-data> (html)
 # ===================================================
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX odp:  <http://data.europa.eu/euodp/ontologies/ec-odp#>
