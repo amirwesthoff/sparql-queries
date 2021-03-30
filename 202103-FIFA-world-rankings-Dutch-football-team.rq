@@ -1,0 +1,12 @@
+# run on SPARQL endpoint <http://query.wikidata.org>
+# ==================================================
+#defaultView:LineChart
+SELECT ?pointintime ?ranking 
+WHERE 
+{
+  wd:Q47050 p:P1352 [
+      ps:P1352 ?ranking ;
+      pq:P585 ?pointintime 
+                     ]
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+}
