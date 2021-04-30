@@ -1,0 +1,12 @@
+# run on SPARQL endpoint <http://query.wikidata.org>
+# ==================================================
+#defaultView:LineChart
+SELECT ?item ?itemLabel ?classLabel ?propLabel
+WHERE 
+{
+  ?item ?p wd:Q7649586  ;
+     wdt:P31 ?class .
+  ?prop wikibase:directClaim ?p
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+} 
+ORDER BY ?classLabel
